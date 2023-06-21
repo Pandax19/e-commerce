@@ -11,45 +11,44 @@ Product.init(
   {
     // define columns
     id: {
-      type: Datatypes.INTERGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true, 
       autoIncrement: true
     },
-    
+  
       product_name:  {
         type: DataTypes.STRING,
         allowNull: false
       }, 
-      price:{
+      price: {
 
         type: DataTypes.DECIMAL,
         allowNull: true, 
       
-        Validate: {
+        validate: {
           isDecimal: true 
         },
-
-      stock: {
-        type: Datatypes.INTERGER,
-        allowNull: false,
-        setDefault: "10",
       },
+      stock: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        setDefault: 10,
+      
         
-        Validate:{ 
+        validate:{ 
           isNumeric: true
-        },
-
-      category_id:{
-        type: Datatypes.INTERGER,
+        }
+      },
+      category_id: {
+        type: DataTypes.INTEGER,
         references:{
           model: "category",
           key: "id"
       }
-    }
+    },
+
   },
-},
- 
   {
     sequelize,
     timestamps: false,
